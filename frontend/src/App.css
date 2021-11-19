@@ -39,10 +39,10 @@ body {
 
 .restaurant-page {
 	margin: 1em;
-	width: 71em;
+	width: 63em;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	gap: 2.5em 4em;
+	gap: 2em 2em;
 }
 
 .restaurant-card {
@@ -50,9 +50,9 @@ body {
 	flex-flow: column nowrap;
 	justify-content: space-around;
 	align-items: center;
-	width: 21em;
+	width: 19em;
 	padding: 0;
-	min-height: 23em;
+	min-height: 19em;
 	max-height: auto;
 	border: 1px solid whitesmoke;
 	background-color: whitesmoke;
@@ -68,8 +68,8 @@ body {
 
 .restaurant-card img {
 	padding-top: 1.5em;
-	width: 18em;
-	min-height: 18em;
+	width: 16em;
+	min-height: 16em;
 	max-height: auto;
 }
 
@@ -79,4 +79,12 @@ body {
 	font-weight: 700;
 	/* text-transform: uppercase; */
 	font-family: "Baloo 2", cursive;
+}
+
+.restaurant-tags {
+	padding: 0.4em;
+	border-radius: 4px;
+	font-weight: 600;
+	font-style: italic;
+	margin: 0 1em;
 }
