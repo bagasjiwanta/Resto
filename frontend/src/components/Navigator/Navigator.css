@@ -1,0 +1,9 @@
+.pagenav-btn {
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+.pagenav-btn-on {
+	color: blue;
+}

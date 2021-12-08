@@ -1,0 +1,11 @@
+.restaurants-main-page {
+	display: flex;
+	flex-flow: row;
+	align-items: flex-start;
+}
+
+@media only screen and (max-width: 960px) {
+	.restaurants-main-page {
+		flex-flow: column;
+	}
+}

@@ -17,13 +17,12 @@ export default class RestaurantsDAO {
 			);
 		}
 	}
-
 	static async getRestaurants({
 		filters = null,
 		page = 0,
 		restaurantsPerPage = 20,
 	} = {}) {
-		let query;
+		let query = {};
 		if (filters) {
 			if ("name" in filters) {
 				query = { $text: { $search: filters["name"] } };
@@ -35,6 +34,20 @@ export default class RestaurantsDAO {
 				query = { ...query, "address.zipcode": { $eq: filters["zipcode"] } };
 			}
 		}
+
+		const pipeline = [
+			{
+				$match: query,
+			},
+			{
+				$group: {
+					_id: null,
+					cuisines: {
+						$addToSet: "$cuisine",
+					},
+				},
+			},
+		];
 
 		let cursor;
 
@@ -52,13 +65,17 @@ export default class RestaurantsDAO {
 		try {
 			const restaurantsList = await displayCursor.toArray();
 			const totalNumRestaurants = await restaurants.countDocuments(query);
+			const cuisineCursor = restaurants.aggregate(pipeline);
+			const cuisineArray = [];
+			await cuisineCursor.forEach((doc) => cuisineArray.push(doc));
+			const cuisines = cuisineArray[0].cuisines;
 
-			return { restaurantsList, totalNumRestaurants };
+			return { restaurantsList, totalNumRestaurants, cuisines };
 		} catch (e) {
 			console.error(
 				`Unable to convert cursor to array or problem counting documents, ${e}`
 			);
-			return { restaurantsList: [], totalNumRestaurants: 0 };
+			return { restaurantsList: [], totalNumRestaurants: 0, cuisines: {} };
 		}
 	}
 	static async getRestaurantByID(id) {
@@ -104,7 +121,6 @@ export default class RestaurantsDAO {
 			throw e;
 		}
 	}
-
 	static async getCuisines() {
 		let cuisines = [];
 		try {

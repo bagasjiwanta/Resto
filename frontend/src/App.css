@@ -1,90 +1,44 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Open+Sans:ital,wght@0,300;0,400;1,400;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+	font-family: "Noto Serif", serif;
+}
 
 :root {
 	margin: 0;
 	padding: 0;
-	--pink: #f0c0c0;
-	--purple: #9a8aa6;
-	--blue: #5b7198;
-	--peach: #eddfdf;
+	--blue: rgb(13, 118, 199);
+	--slight-grey: #e4e4e4;
 	--grey: #545454;
-	--black: #00000f;
 	--white: #fff;
-	--yellow: #f6f6b0;
-}
-
-::-webkit-scrollbar {
-	width: 12px;
-}
-::-webkit-scrollbar-thumb {
-	border-radius: 8px;
-	background: rgb(165, 165, 165);
-}
-
-p {
-	font-family: "Open Sans", sans-serif;
+	--yellow-pastel: #f8e36c;
+	--red-pastel: #f15f5f;
+	--lime-pastel: #bfdb59;
+	--orange-pastel: #f8b869;
+	--green-pastel: #87ec68;
+	font-size: 16px;
 }
 
 body {
-	background-color: rgb(219, 225, 232);
+	background-color: whitesmoke;
 }
 
 .app {
-	width: 100%;
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
-	justify-content: space-between;
+	background-color: var(--slight-grey);
+	min-height: 100vh;
 }
 
-.restaurant-page {
-	margin: 1em;
-	width: 63em;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 2em 2em;
+@media only screen and (max-width: 768px) {
+	:root {
+		font-size: 14px;
+	}
 }
 
-.restaurant-card {
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: space-around;
-	align-items: center;
-	width: 19em;
-	padding: 0;
-	min-height: 19em;
-	max-height: auto;
-	border: 1px solid whitesmoke;
-	background-color: whitesmoke;
-	border-radius: 4px;
-	margin: 0;
-	transition: 0.3s;
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
-}
-
-.restaurant-card:hover {
-	margin-top: -0.6em;
-}
-
-.restaurant-card img {
-	padding-top: 1.5em;
-	width: 16em;
-	min-height: 16em;
-	max-height: auto;
-}
-
-.restaurant-card h2 {
-	color: black;
-	margin: 0.4em 0;
-	font-weight: 700;
-	/* text-transform: uppercase; */
-	font-family: "Baloo 2", cursive;
-}
-
-.restaurant-tags {
-	padding: 0.4em;
-	border-radius: 4px;
-	font-weight: 600;
-	font-style: italic;
-	margin: 0 1em;
+@media only screen and (max-width: 400px) {
+	:root {
+		font-size: 13px;
+	}
 }
