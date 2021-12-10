@@ -1,6 +1,9 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Filters.css";
+
+const expandArrowUrl =
+	"https://img.icons8.com/material-outlined/24/000000/expand-arrow--v1.png";
 
 export function SearchBox({ filters, setFilters }) {
 	const inputRef = useRef();
@@ -28,6 +31,12 @@ export function FilterBox({ filters, setFilters, cuisines }) {
 	const [cuisineValue, setCuisineValue] = useState("All Cuisines");
 	const zipcodeValue = useRef();
 	const [showCuisines, setShowCuisines] = useState(false);
+	const [showZipcodes, setShowZipcodes] = useState(false);
+	const [showInner, setShowInner] = useState(false);
+
+	useEffect(() => {
+		setShowInner(window.innerWidth > 600);
+	}, []);
 
 	const onSubmit = (e) => {
 		let temp = cuisineValue;
@@ -43,57 +52,75 @@ export function FilterBox({ filters, setFilters, cuisines }) {
 
 	return (
 		<div className="filter-box">
-			<h3 className="filter-box-title">Filters</h3>
-			<h4
-				onClick={() => setShowCuisines(!showCuisines)}
-				className="filter-box-subtitle"
+			<h3 className="filter-box-title" onClick={() => setShowInner(!showInner)}>
+				Filters
+			</h3>
+			<div
+				className={`filter-box-inner`}
+				style={{ display: !showInner && "none" }}
 			>
-				<span>Cuisines</span>
-				<span className={showCuisines && "invert-rotation"}>
-					<img
-						src="https://img.icons8.com/material-outlined/24/000000/expand-arrow--v1.png"
-						alt=""
-					/>
-				</span>
-			</h4>
-			<ul
-				className={`filter-cuisine ${showCuisines && "filter-cuisine-active"}`}
-			>
-				<li value="All Cuisines" key={-1}>
-					<button
-						onClick={() => setCuisineValue("All Cuisines")}
-						className={`filter-cuisine-item ${
-							cuisineValue === "All Cuisines" && "filter-cuisine-item-active"
-						}`}
-					>
-						All Cuisines
-					</button>
-				</li>
-				{cuisines.map((c, index) => (
-					<li value={c} key={index}>
+				<h4
+					onClick={() => setShowCuisines(!showCuisines)}
+					className="filter-box-subtitle"
+				>
+					<span>Cuisines</span>
+					<span className={`${showCuisines && "invert-rotation"}`}>
+						<img src={expandArrowUrl} alt="v" />
+					</span>
+				</h4>
+				<ul
+					className={`filter-cuisine ${
+						showCuisines && "filter-cuisine-active"
+					}`}
+				>
+					<li value="All Cuisines" key={-1}>
 						<button
-							onClick={() => setCuisineValue(c)}
+							onClick={() => setCuisineValue("All Cuisines")}
 							className={`filter-cuisine-item ${
-								c === cuisineValue && "filter-cuisine-item-active"
+								cuisineValue === "All Cuisines" && "filter-cuisine-item-active"
 							}`}
 						>
-							{c}
+							All Cuisines
 						</button>
 					</li>
-				))}
-			</ul>
-			<h4 className="filter-box-subtitle">
-				<span>Zipcodes</span>
-				<span>
-					<img
-						src="https://img.icons8.com/material-outlined/24/000000/expand-arrow--v1.png"
-						alt=""
-					/>
-				</span>
-			</h4>
-
-			<input type="text" ref={zipcodeValue}></input>
-			<button onClick={onSubmit}>Apply filter</button>
+					{cuisines.map((cuisine, index) => (
+						<li value={cuisine} key={index}>
+							<button
+								onClick={() => setCuisineValue(cuisine)}
+								className={`filter-cuisine-item ${
+									cuisine === cuisineValue && "filter-cuisine-item-active"
+								}`}
+							>
+								{cuisine}
+							</button>
+						</li>
+					))}
+				</ul>
+				<h4
+					className="filter-box-subtitle"
+					onClick={() => setShowZipcodes(!showZipcodes)}
+				>
+					<span>Zipcodes</span>
+					<span className={`${showCuisines && "invert-rotation"}`}>
+						<img src={expandArrowUrl} alt="v" />
+					</span>
+				</h4>
+				<div
+					className={`filter-zipcode ${
+						showZipcodes && "filter-zipcode-active"
+					}`}
+				>
+					<input
+						type="text"
+						ref={zipcodeValue}
+						placeholder="example : 11234"
+						className="filter-zipcode-input"
+					></input>
+				</div>
+				<button onClick={onSubmit} className="filter-button">
+					<strong>Apply filters</strong>
+				</button>
+			</div>
 		</div>
 	);
 }

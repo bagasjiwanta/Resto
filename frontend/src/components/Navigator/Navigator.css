@@ -1,9 +1,35 @@
+.pagenav-container {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	margin-bottom: 1em;
+}
+
 .pagenav-btn {
 	border: none;
 	background: none;
 	cursor: pointer;
+	font-size: 1em;
 }
 
 .pagenav-btn-on {
-	color: blue;
+	color: var(--blue);
+	font-weight: 700;
+}
+
+.pagenav {
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-flow: row nowrap;
+	margin: 0.5em;
+}
+
+.pagenav-p-form {
+	display: flex;
+}
+
+.pagenav-form-input {
+	margin-left: 1em;
+	max-width: 4em;
 }

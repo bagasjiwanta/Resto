@@ -14,17 +14,30 @@
 }
 
 .filter-box {
-	max-width: 16em;
+	width: 15em;
 	display: flex;
 	flex-flow: column nowrap;
-	background-color: white;
+	background-color: whitesmoke;
 	border-radius: 4px;
-	padding: 0.5em;
+	padding: 0.2em;
 	margin-top: 1em;
+	position: sticky;
+	top: 4em;
+	align-items: stretch;
 }
 
 .filter-box-title {
 	text-align: center;
+	width: 100%;
+}
+
+.display-none {
+	display: none;
+}
+
+.filter-box-inner {
+	display: flex;
+	flex-direction: column;
 }
 
 .filter-box-subtitle {
@@ -45,28 +58,15 @@
 	overflow: scroll;
 	list-style: none;
 	padding: 0;
-	animation: growDown 300ms ease-in-out;
-}
-
-@keyframes growDown {
-	0% {
-		transform: scaleY(0);
-	}
-	80% {
-		transform: scaleY(1.1);
-	}
-	100% {
-		transform: scaleY(1);
-	}
 }
 
 .filter-cuisine-active {
-	display: block;
+	display: inline-block;
 }
 
 .filter-cuisine-item {
-	width: 14em;
-	background: white;
+	width: 100%;
+	background: whitesmoke;
 	border: none;
 	margin: 2px 0;
 	cursor: pointer;
@@ -80,4 +80,48 @@
 
 .invert-rotation {
 	transform: rotate(180deg);
+}
+
+.filter-zipcode {
+	display: none;
+	text-align: center;
+	font-size: 1em;
+}
+
+.filter-zipcode-active {
+	display: inline-block;
+}
+
+.filter-zipcode-input {
+	font-size: 1em;
+}
+
+.filter-button {
+	cursor: pointer;
+	margin: 0.5em;
+	padding: 4px;
+	border: 1px solid var(--blue);
+	border-radius: 0.5em;
+	background-color: var(--blue);
+	color: white;
+	font-size: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+	.form-input-text {
+		width: 70vw;
+		margin-right: 10vw;
+	}
+
+	.filter-box {
+		top: 3.5em;
+		width: 70vw;
+		cursor: pointer;
+		border: 1px solid var(--blue);
+	}
+
+	.filter-box-title {
+		margin: 0;
+		color: var(--blue);
+	}
 }

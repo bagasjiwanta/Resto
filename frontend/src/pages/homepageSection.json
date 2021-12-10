@@ -1,0 +1,26 @@
+{
+	"homepage1": {
+		"index": 1,
+		"imageFirst": true,
+		"greyBg": true,
+		"imgUrl": "https://drive.google.com/uc?export=view&id=1i2uz7Ayhv2O7pusIpxDUX10bQkTUtd2y",
+		"title": "Find your perfect restaurant",
+		"description": "Search your favorite restaurant from over 20000 restaurants in Brooklyn, Staten Island, and much more"
+	},
+	"homepage2": {
+		"index": 2,
+		"imageFirst": false,
+		"greyBg": false,
+		"imgUrl": "https://drive.google.com/uc?export=view&id=1PyXTKsvrqcimfw3R82MntvsFzUqok2qn",
+		"title": "Filter by cuisines and zipcodes",
+		"description": "You would like to eat pizza near the airport ? no problem, just put the filters and you're good to go"
+	},
+	"homepage3": {
+		"index": 3,
+		"imageFirst": true,
+		"greyBg": true,
+		"imgUrl": "https://drive.google.com/uc?export=view&id=1i3NN_RYn-QHNR8IQieNeSOT8w646eYKB",
+		"title": "Read descriptions about the restaurant",
+		"description": "View descriptions as you search through these restaurants"
+	}
+}

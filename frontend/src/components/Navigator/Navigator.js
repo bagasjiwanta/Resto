@@ -24,7 +24,7 @@ function PageButtonEnd({ isLeft, onClick, to }) {
 	);
 }
 
-export function PageNav({ filters, setFilters, data = null }) {
+export function PageNav({ filters, setFilters, data }) {
 	const [pageNow, setPageNow] = useState(0);
 	const [ellipses, setShowEllipses] = useState([false, false]);
 	const [pageNumbers, setPageNumbers] = useState([]);
@@ -32,7 +32,7 @@ export function PageNav({ filters, setFilters, data = null }) {
 	const inputRef = useRef();
 
 	useEffect(() => {
-		if (data) {
+		if (data.total_results) {
 			const { total_results, entries_per_page, page } = data;
 			let temp = Math.ceil(total_results / entries_per_page - 1);
 
@@ -99,9 +99,17 @@ export function PageNav({ filters, setFilters, data = null }) {
 				/>
 				<PageButtonEnd isLeft={false} to={pageNow + 2} onClick={changePage} />
 			</ul>
-			<form onSubmit={changeEntriesPerPage}>
-				<input type="text" ref={inputRef} placeholder="change"></input>
-			</form>
+			<div className="pagenav-p-form">
+				<span>showing {data && data.entries_per_page} entries per page</span>
+				<form onSubmit={changeEntriesPerPage}>
+					<input
+						type="text"
+						ref={inputRef}
+						placeholder="change"
+						className="pagenav-form-input"
+					></input>
+				</form>
+			</div>
 		</div>
 	);
 }

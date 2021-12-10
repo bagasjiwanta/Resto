@@ -1,7 +1,7 @@
-import "./app.css";
+import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useRestaurants } from "./tools/useData";
-import { NavbarContainer, Navbar } from "./components/Navbar/Navbar";
+import { NavbarContainer } from "./components/Navbar/Navbar";
 import { SearchBox } from "./components/Filters/Filters";
 import { About, Homepage, Restaurant, Restaurants } from "./pages/Pages";
 
@@ -11,7 +11,6 @@ function App() {
 	return (
 		<div className="app">
 			<NavbarContainer>
-				<Navbar />
 				<SearchBox filters={filters} setFilters={setFilters} />
 			</NavbarContainer>
 

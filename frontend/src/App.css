@@ -1,13 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 * {
-	font-family: "Noto Serif", serif;
+	font-family: "DM Sans", sans-serif;
 }
 
 :root {
 	margin: 0;
 	padding: 0;
-	--blue: rgb(13, 118, 199);
+	--blue: rgb(38, 77, 204);
 	--slight-grey: #e4e4e4;
 	--grey: #545454;
 	--white: #fff;
@@ -24,11 +24,7 @@ body {
 }
 
 .app {
-	display: flex;
-	flex-flow: column nowrap;
-	align-items: center;
-	background-color: var(--slight-grey);
-	min-height: 100vh;
+	height: 100%;
 }
 
 @media only screen and (max-width: 768px) {
