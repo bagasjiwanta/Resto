@@ -144,8 +144,8 @@ export function Restaurant() {
 	useEffect(() => {
 		if (data) {
 			const [longitude, latitude] = data.address.coord;
-			let longDMS = convertToDms(longitude, "long");
-			let latDMS = convertToDms(latitude, "lat");
+			let longDMS = convertToDms(longitude["$numberDouble"], "long");
+			let latDMS = convertToDms(latitude["$numberDouble"], "lat");
 			setGmapUrl(`https://www.google.com/maps/place/${longDMS}+${latDMS}/`);
 		}
 	}, [data]);
@@ -182,15 +182,19 @@ export function Restaurant() {
 					<h3>Grades</h3>
 					<ul style={{ width: "15em" }}>
 						{data.grades &&
-							data.grades.map((value, index) => (
-								<li key={index}>
-									<CuisineTags
-										text={`Grade ${value.grade}${value.score}, ${new Date(
-											value.date
-										).getUTCFullYear()}`}
-									/>
-								</li>
-							))}
+							data.grades.map((value, index) => {
+								return (
+									<li key={index}>
+										<CuisineTags
+											text={`Grade ${value.grade}${
+												value.score["$numberInt"]
+											}, ${new Date(
+												parseInt(value.date["$date"]["$numberLong"])
+											).getUTCFullYear()}`}
+										/>
+									</li>
+								);
+							})}
 					</ul>
 				</div>
 				<button onClick={() => navigate(-1)}>go back</button>

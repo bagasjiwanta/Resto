@@ -32,10 +32,10 @@ export function PageNav({ filters, setFilters, data }) {
 	const inputRef = useRef();
 
 	useEffect(() => {
-		if (data.total_results) {
+		if (data.entries_per_page) {
 			const { total_results, entries_per_page, page } = data;
-			let temp = Math.ceil(total_results / entries_per_page - 1);
-
+			const total = total_results["$numberLong"];
+			let temp = Math.ceil(total / entries_per_page - 1);
 			if (temp < 6) {
 				const arr = [];
 				for (let i = 2; i < temp; i++) {

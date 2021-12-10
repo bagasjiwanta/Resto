@@ -20,22 +20,26 @@ class RestaurantAPI {
 		},
 		cancelTokenSource
 	) {
-		let reqString = "?";
+		let reqString = "restaurants?";
 		Object.keys(query).forEach((value) => {
 			if (query[value]) {
 				reqString = reqString.concat(`${value}=${query[value]}&`);
 			}
 		});
-		return this.instance.get(reqString, { cancelToken: cancelTokenSource });
+		return this.instance.get(reqString);
 	}
 
 	getCuisines(cancelTokenSource) {
-		return this.instance.get("/cuisines", { cancelToken: cancelTokenSource });
+		return this.instance.get("cuisines", { cancelToken: cancelTokenSource });
 	}
 
 	getRestaurantById(id, cancelTokenSource) {
-		return this.instance.get(`/id/${id}`, { cancelToken: cancelTokenSource });
+		return this.instance.get(`restaurant?id=${id}`, {
+			cancelToken: cancelTokenSource,
+		});
 	}
 }
 
-export default new RestaurantAPI("http://localhost:3000/api/v1/restaurants");
+export default new RestaurantAPI(
+	"https://ap-southeast-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/restaurants-devkv/service/restaurants/incoming_webhook/"
+);

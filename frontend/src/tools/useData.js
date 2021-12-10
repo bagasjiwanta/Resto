@@ -66,7 +66,6 @@ export function useCuisine() {
 					cancelTokenSource.token
 				);
 				setCuisines(response.data);
-				console.log("render");
 			} catch (err) {
 				console.log(err);
 			}
