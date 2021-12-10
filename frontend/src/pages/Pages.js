@@ -104,9 +104,9 @@ export function About() {
 					<p>Features implemented : </p>
 					<li>Routing</li>
 					<li>Reusable components</li>
-					<li>API calls (GET, PUT, POST, DELETE)</li>
-					<li>Authentications</li>
-					<li>Deployment using netlify</li>
+					<li>Responsive design</li>
+					<li>API calls</li>
+					<li>Deployment</li>
 					<li>And more :)</li>
 				</ol>
 			</div>

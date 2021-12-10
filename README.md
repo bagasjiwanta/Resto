@@ -12,8 +12,9 @@ Just an imaginary company for searching restaurants all across Brooklyn, Staten 
 1. Routing
 2. Reusable components
 3. Responsive design
-4. API calls 
+4. API calls
 5. Deployment
+
 And more :)
 
 <h3>Additional notes: </h3>
