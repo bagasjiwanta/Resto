@@ -20,7 +20,7 @@ export function SearchBox({ filters, setFilters }) {
 					ref={inputRef}
 					className="form-input-text"
 					type="text"
-					placeholder="type restaurant name to search"
+					placeholder=" &#x1F50D; type restaurant name to search"
 				></input>
 			</form>
 		)
@@ -38,7 +38,7 @@ export function FilterBox({ filters, setFilters, cuisines }) {
 		setShowInner(window.innerWidth > 600);
 	}, []);
 
-	const onSubmit = (e) => {
+	const applyFilter = () => {
 		let temp = cuisineValue;
 		if (temp === "All Cuisines") {
 			temp = "";
@@ -48,6 +48,18 @@ export function FilterBox({ filters, setFilters, cuisines }) {
 			zipcode: zipcodeValue.current.value,
 			cuisine: temp,
 		});
+		setShowInner(false);
+	};
+
+	const resetFilter = () => {
+		setCuisineValue("All Cuisines");
+		zipcodeValue.current.value = "";
+		setFilters({
+			...filters,
+			zipcode: "",
+			cuisine: "",
+		});
+		setShowInner(false);
 	};
 
 	return (
@@ -117,7 +129,13 @@ export function FilterBox({ filters, setFilters, cuisines }) {
 						className="filter-zipcode-input"
 					></input>
 				</div>
-				<button onClick={onSubmit} className="filter-button">
+				<button
+					onClick={resetFilter}
+					className="filter-button filter-button-red"
+				>
+					<strong>Reset filters</strong>
+				</button>
+				<button onClick={applyFilter} className="filter-button ">
 					<strong>Apply filters</strong>
 				</button>
 			</div>

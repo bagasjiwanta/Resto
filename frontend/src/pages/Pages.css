@@ -60,6 +60,7 @@
 	align-items: center;
 	gap: 3em;
 	justify-content: space-between;
+	padding-bottom: 2em;
 }
 
 .homepage-main {
@@ -69,6 +70,7 @@
 .homepage-welcome-title {
 	margin-top: 1.5em;
 	font-size: 4em;
+	max-width: 80vw;
 }
 
 .homepage-section {
@@ -78,21 +80,9 @@
 	gap: 4em;
 	align-items: center;
 	padding: 1em;
-	width: max-content;
-	width: auto;
 	border-radius: 0.5em;
 }
 
-@media only screen and (max-width: 960px) {
-	.homepage-section {
-		flex-direction: column-reverse;
-		gap: 0;
-	}
-}
-
-.flex-row-reverse {
-	flex-direction: row-reverse;
-}
 .homepage-section-image {
 	max-width: 450px;
 }
@@ -100,6 +90,24 @@
 .homepage-section-text {
 	font-size: 1.2em;
 	max-width: 25em;
+}
+
+@media only screen and (max-width: 960px) {
+	.homepage-section {
+		flex-direction: column-reverse;
+		gap: 0;
+		max-width: 90vw;
+	}
+	.homepage-section-image {
+		max-width: 100%;
+	}
+	.homepage-section-text {
+		max-width: 90%;
+	}
+}
+
+.flex-row-reverse {
+	flex-direction: row-reverse;
 }
 
 .rtl {
@@ -116,5 +124,9 @@
 	align-items: center;
 	justify-content: center;
 	min-height: 100%;
-	font-size: 1.5em;
+	font-size: 1.3em;
+	left: 10%;
+	position: relative;
+	max-width: 80%;
+	z-index: -1;
 }

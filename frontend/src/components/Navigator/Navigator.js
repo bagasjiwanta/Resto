@@ -33,8 +33,11 @@ export function PageNav({ filters, setFilters, data }) {
 
 	useEffect(() => {
 		if (data.entries_per_page) {
-			const { total_results, entries_per_page, page } = data;
-			const total = total_results["$numberLong"];
+			let { total_results, entries_per_page, page } = data;
+			page = parseInt(page);
+			entries_per_page = parseInt(entries_per_page);
+			const total = parseInt(total_results["$numberLong"]);
+
 			let temp = Math.ceil(total / entries_per_page - 1);
 			if (temp < 6) {
 				const arr = [];
@@ -42,6 +45,7 @@ export function PageNav({ filters, setFilters, data }) {
 					arr.push(i);
 				}
 				setPageNumbers(arr);
+				setShowEllipses([false, false]);
 			} else {
 				if (page < 4) {
 					setPageNumbers([2, 3, 4, 5, 6]);
@@ -62,7 +66,7 @@ export function PageNav({ filters, setFilters, data }) {
 	}, [data]);
 
 	const changePage = (destPage) => {
-		if (destPage !== 0 && destPage !== max) {
+		if (destPage !== 0 && destPage !== max + 2) {
 			setFilters({ ...filters, page: destPage - 1 });
 		}
 	};

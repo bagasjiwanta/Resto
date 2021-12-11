@@ -59,7 +59,9 @@ function HomepageSection({ config }) {
 export function Homepage() {
 	return (
 		<section className="homepage">
-			<h1 className="homepage-welcome-title">Welcome to Resto</h1>
+			<h1 className="homepage-welcome-title">
+				Welcome to <span style={{ color: "var(--blue)" }}>R</span>esto
+			</h1>
 			<HomepageSection config={homepageConf.homepage1} key={1} />
 			<HomepageSection config={homepageConf.homepage2} key={2} />
 			<HomepageSection config={homepageConf.homepage3} key={3} />
@@ -71,7 +73,9 @@ export function About() {
 	return (
 		<section className="about">
 			<br></br>
-			<h1>About Resto</h1>
+			<h1>
+				About <span style={{ color: "var(--blue)" }}>R</span>esto
+			</h1>
 			<p>
 				<i>
 					Just an imaginary company, created by{" "}
@@ -81,8 +85,7 @@ export function About() {
 						rel="noreferrer"
 					>
 						bagasjiwanta
-					</a>
-					<br></br>
+					</a>{" "}
 					as a personal project.{" "}
 					<a
 						href="https://github.com/bagasjiwanta/Resto"

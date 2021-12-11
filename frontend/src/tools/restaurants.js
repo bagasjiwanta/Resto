@@ -26,7 +26,7 @@ class RestaurantAPI {
 				reqString = reqString.concat(`${value}=${query[value]}&`);
 			}
 		});
-		return this.instance.get(reqString);
+		return this.instance.get(reqString, { cancelToken: cancelTokenSource });
 	}
 
 	getCuisines(cancelTokenSource) {

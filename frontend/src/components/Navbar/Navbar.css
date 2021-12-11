@@ -39,7 +39,6 @@
 .navbar-toggle {
 	background: none;
 	border: none;
-	color: white;
 	cursor: pointer;
 	z-index: 10;
 	margin-right: auto;
@@ -48,11 +47,11 @@
 @media only screen and (max-width: 600px) {
 	.navbar-container {
 		justify-content: space-evenly;
+		height: 4em;
 	}
 
 	.navbar-container-active {
 		align-items: flex-start;
-
 		height: 100vh;
 	}
 

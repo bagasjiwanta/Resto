@@ -100,17 +100,23 @@
 	cursor: pointer;
 	margin: 0.5em;
 	padding: 4px;
-	border: 1px solid var(--blue);
+	border: none;
 	border-radius: 0.5em;
 	background-color: var(--blue);
 	color: white;
 	font-size: 1em;
 }
 
+.filter-button-red {
+	background-color: maroon;
+	border: none;
+}
+
 @media only screen and (max-width: 600px) {
 	.form-input-text {
 		width: 70vw;
 		margin-right: 10vw;
+		font-size: 1.1em;
 	}
 
 	.filter-box {

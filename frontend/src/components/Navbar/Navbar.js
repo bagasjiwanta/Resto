@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Navbar.css";
+import { FaTimes, FaBars } from "react-icons/fa";
 
 export function NavbarContainer({ children }) {
 	const [mobile, setMobile] = useState(false);
@@ -37,15 +38,16 @@ export function Navbar({ mobile, showNavbar, setShowNavbar }) {
 					onClick={() => setShowNavbar(!showNavbar)}
 				>
 					{showNavbar ? (
-						<img
-							style={{ color: "whitesmoke" }}
-							alt="x"
-							src="https://img.icons8.com/ios-glyphs/30/000000/multiply.png"
+						<FaTimes
+							size="2.5em"
+							color="white"
+							style={{ paddingTop: "0.5em" }}
 						/>
 					) : (
-						<img
-							alt="="
-							src="https://img.icons8.com/ios-glyphs/30/000000/menu--v1.png"
+						<FaBars
+							size="2.5em"
+							color="white"
+							style={{ paddingTop: "0.5em" }}
 						/>
 					)}
 				</button>
