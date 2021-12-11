@@ -5,7 +5,8 @@ Just an imaginary company for searching restaurants all across Brooklyn, Staten 
 
 1. ReactJs
 2. Vanilla css
-3. Mongodb
+3. Mongodb atlas for the database (I used the sample_restaurants database given by mongodb for learning purposes)
+4. Mongodb realm for the server
 
 <h3>Features implemented :</h3>
 
